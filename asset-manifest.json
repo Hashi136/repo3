@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Codemates/static/css/main.d0be257a.css",
+    "main.js": "/Codemates/static/js/main.fc1b21d1.js",
+    "static/media/Lions Club of Colombo Centennial.png": "/Codemates/static/media/Lions Club of Colombo Centennial.7bbed1f26c0676ec3da5.png",
+    "index.html": "/Codemates/index.html",
+    "main.d0be257a.css.map": "/Codemates/static/css/main.d0be257a.css.map",
+    "main.fc1b21d1.js.map": "/Codemates/static/js/main.fc1b21d1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d0be257a.css",
+    "static/js/main.fc1b21d1.js"
+  ]
+}
