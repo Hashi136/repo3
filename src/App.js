@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+
+import Home from './pages/Home';
+import AboutUs from './pages/AboutUs';
+import LeoClub from './pages/LeoClub';
+import LCIF from './pages/LCIF';
+import Members from './pages/Members';
+import Events from './pages/Events';
+import Conference from './pages/Conference';
+
+import Layout from './components/Layout/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      
+    <Routes>
+     <Route path='/' element={<Home />} />
+     <Route path='/about-us' element={ <AboutUs />} />
+     <Route path='/leo-club' element={  <LeoClub />} />
+     <Route path='/lcif' element={  <LCIF />} />
+     <Route path='/members' element={  <Members />} />
+     <Route path='/events' element={  <Events />} />
+     <Route path='/conference' element={  <Conference />} />
+
+     </Routes> 
+   </Layout>
   );
 }
 
