@@ -1,6 +1,6 @@
 function Members(){
     return <div>
-        members
+        best members
     </div>
 }
 
