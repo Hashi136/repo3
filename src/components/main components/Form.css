@@ -1,0 +1,10 @@
+@media (max-width:576px) {  
+    .leftColumn{
+        flex-direction: column;
+    }
+}
+
+.formContainer{
+    margin-top: 15px;
+
+}

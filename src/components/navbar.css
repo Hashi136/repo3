@@ -1,0 +1,31 @@
+@media(min-width:992px) {
+   .navContainer{
+       flex-direction: column;
+    }
+    
+}
+.nav-link:focus {
+    border-bottom: 3px solid #fff;
+}
+@media (max-width:991px) {  
+    .navContainer img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 15px;
+    }
+}
+.navigationBar{
+    background-image: url('../images/bgimg.jpg') !important;
+    top: -61px;
+
+}
+.navContainer{
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    top: -53px;
+
+
+}
+.navContainer img{
+    margin-top: 15px;
+}
+

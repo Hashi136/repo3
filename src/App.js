@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
+import Header from './components/main components/Header';
+import Home from './components/Pages/Home';
+import AboutUs from './components/Pages/AboutUs'
+import LeoClub from './components/Pages/LeoClub'
+import LCIF from './components/Pages/LCIF'
+import Member from './components/Pages/Member'
+import Events from './components/Pages/Events'
+import Conference from './components/Pages/Conference'
+import Footer from './components/footer'
 import './App.css';
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/aboutus' element={<AboutUs />} />
+        <Route path='/leoclub' element={<LeoClub />} />
+        <Route path='/lcif' element={<LCIF />} />
+        <Route path='/member' element={<Member />} />
+        <Route path='/events' element={<Events />} />
+        <Route path='/conference' element={<Conference />} />
+  
+      </Routes>
+      <Footer />
+
+{/* <Routes>
+        <Route path="/" element={<AllMeetupsPage />} />
+        <Route path="/new-meetup" element={<NewMeetupsPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+      </Routes> */}
     </div>
   );
 }

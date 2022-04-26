@@ -1,0 +1,21 @@
+.formRightContainer{
+   padding-left: 0 !important;
+   padding-right: 0 !important;
+}
+
+.inputBox{
+   border: 0;
+   outline: 0;
+   border-bottom: 2px solid rgb(0, 0, 0);
+   border-radius: 0;
+}
+
+.form-control:focus {
+   
+   background-color: rgb(193, 193, 193);
+   background-clip: padding-box;
+   border: 0px solid #ced4da !important;
+   appearance: none;
+   border-radius: 0.25rem;
+   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
