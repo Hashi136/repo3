@@ -7,6 +7,8 @@ import LCIF from './components/Pages/LCIF'
 import Member from './components/Pages/Member'
 import Events from './components/Pages/Events'
 import Conference from './components/Pages/Conference'
+import Join from './components/Pages/Join';
+import Donation from './components/Pages/Donation'
 import Footer from './components/footer'
 import './App.css';
 
@@ -25,6 +27,8 @@ function App() {
         <Route path='/member' element={<Member />} />
         <Route path='/events' element={<Events />} />
         <Route path='/conference' element={<Conference />} />
+        <Route path='/join' element={<Join />} />
+        <Route path='/donate' element={<Donation />} />
   
       </Routes>
       <Footer />

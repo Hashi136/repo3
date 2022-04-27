@@ -30,13 +30,14 @@ function NavBar() {
                       <Nav.Link as={Link} to='/member' >Member</Nav.Link>
                       <Nav.Link as={Link} to='/events' >Events</Nav.Link>
                       <Nav.Link as={Link} to='/conference' >Conference</Nav.Link>
+                      <Nav.Link as={Link} to='/join' ><Button className="me-1 mb-2" variant="primary">Join</Button></Nav.Link>
+                      <Nav.Link as={Link} to='/donate' ><Button className="me-1 mb-2" variant="warning">Donate</Button></Nav.Link>
                       <Form className="d-flex mb-2">
                         <FormControl
                           type="search"
                           placeholder="Search"
                           className="me-2"
-                          aria-label="Search"
-                  
+                          aria-label="Search"   
                         />
                         <Button variant="outline-primary"><Search/></Button>
                       </Form>
