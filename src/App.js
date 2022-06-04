@@ -9,6 +9,8 @@ import Events from './components/Pages/Events'
 import Conference from './components/Pages/Conference'
 import Join from './components/Pages/Join';
 import Donation from './components/Pages/Donation'
+import Services from './components/Pages/Services'
+import Leadership from './components/Pages/Leadership'
 import Footer from './components/footer'
 import './App.css';
 
@@ -29,6 +31,10 @@ function App() {
         <Route path='/conference' element={<Conference />} />
         <Route path='/join' element={<Join />} />
         <Route path='/donate' element={<Donation />} />
+        <Route path='/services' element={<Services />} />
+        <Route path='/leadership' element={<Leadership />} />
+
+        
   
       </Routes>
       <Footer />
