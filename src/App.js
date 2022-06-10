@@ -11,6 +11,8 @@ import Join from './components/Pages/Join';
 import Donation from './components/Pages/Donation'
 import Services from './components/Pages/Services'
 import Leadership from './components/Pages/Leadership'
+import RepliesOfContactUs from './components/Admin Page/RepliesOfContactUs';
+import ReplyToFeedback from './components/Admin Page/ReplyToFeedback'
 import Footer from './components/footer'
 import './App.css';
 
@@ -33,8 +35,8 @@ function App() {
         <Route path='/donate' element={<Donation />} />
         <Route path='/services' element={<Services />} />
         <Route path='/leadership' element={<Leadership />} />
-
-        
+        <Route path='/repliesofcontactUs' element={<RepliesOfContactUs />} />
+        <Route path='/replytofeedback' element={<ReplyToFeedback />} />
   
       </Routes>
       <Footer />
