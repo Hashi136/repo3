@@ -16,6 +16,7 @@ export const getUsers = async(req, res) => {
 export const Register = async(req, res) => {
     const { name, email, password, confPassword } = req.body;
     if(password != confPassword) return res.status(400).json({msg: "Password and Confirm Password do not match"});
+    if(name.length >= 15) return res.status(400).json({msg: "User name can't be more than 15 characters"});
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(password, salt);
     try {
