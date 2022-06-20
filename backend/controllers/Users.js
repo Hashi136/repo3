@@ -24,7 +24,7 @@ export const Register = async(req, res) => {
     }
 
     if(!validateEmail(email)) return res.status(400).json({msg: "enter a valid email address"});
-    
+    if(password.length < 8) return  res.status(400).json({msg: "Entered password is not strong"});
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(password, salt);
     try {
