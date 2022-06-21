@@ -1,6 +1,6 @@
 function Join() {
     return <>
-    Join
+    <h1>Hi I'm Luminda</h1>
     </>;
 }
  export default Join
