@@ -1,6 +1,12 @@
 function Member() {
     return <>
-    Member
+    <body>
+        <section class = "Members">
+            <div className="cotainer">
+                <h1>Our Team</h1>
+            </div>
+        </section>
+    </body>
     </>;
 }
  export default Member
