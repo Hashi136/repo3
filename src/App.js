@@ -14,6 +14,7 @@ import Leadership from './components/Pages/Leadership'
 import RepliesOfContactUs from './components/Admin Page/RepliesOfContactUs';
 import ReplyToFeedback from './components/Admin Page/ReplyToFeedback'
 import Footer from './components/footer'
+import Login from './components/Pages/Login';
 import './App.css';
 
 
@@ -37,7 +38,7 @@ function App() {
         <Route path='/leadership' element={<Leadership />} />
         <Route path='/repliesofcontactUs' element={<RepliesOfContactUs />} />
         <Route path='/replytofeedback' element={<ReplyToFeedback />} />
-  
+        <Route path='/login' element={<Login />} />
       </Routes>
       <Footer />
 
