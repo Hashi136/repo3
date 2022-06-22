@@ -1,6 +1,9 @@
 import { Container } from 'react-bootstrap';
+// import { Link } from 'react-router-dom';
 import image from '../../images/leo.jpg'
-import LeoLogo from '../../images/leoLogo.png'
+// import LeoLogo from '../../images/leoLogo.png'
+// import AlphaClubs from './AlphaClubs';
+import OmegaClubs from './OmegaClubs';
 import './LeoClub.css'
 
 function LeoClub() {
@@ -23,15 +26,19 @@ function LeoClub() {
 
             <div className="LeoClubs">
 
-            <h2>Our Leo Clubs</h2>
-            <h3>Alpha Club</h3>
+                <h2>Our Leo Clubs</h2>
+                {/* <AlphaClubs/> */}
+            {/* <h3>Alpha Club</h3>
                 <img
                     src={LeoLogo}
                     alt="Leo Logo"
                     height="250px"
                     className='leoImage mt-3'/>
-            <p className='mt-5'>Name</p>                 
+                <p className='mt-5'>Name</p>   */}
+                <hr />
+                <OmegaClubs/>
             </div>
+                {/* <Button as={Link} to='/leoclubuploads' variant="outline-primary"> Admin View </Button> */}
     </Container>
     </>;
 }

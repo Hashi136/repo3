@@ -7,10 +7,13 @@ import './ContactForm.css'
 
 
 function ContactForm() {
+    const [isAdmin,setIsAdmin] =useState(true)
+
     const [fName, setFName] = useState('')
     const [lName, setLName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
+
     const [validated, setValidated] = useState(false)
     const [formErrors, setFormErrors] = useState({})
     const [isSubmit, setIsSubmit] = useState(false)
@@ -30,7 +33,7 @@ function ContactForm() {
         setValidated(true)
 
         setIsSubmit(true)
-console.log(Object.keys(formErrors).length)
+        console.log(Object.keys(formErrors).length)
         if (Object.keys(formErrors).length === 0 && isSubmit) {  
             
             Axios.post('http://localhost:5000/api/insertreplies', {
@@ -41,8 +44,8 @@ console.log(Object.keys(formErrors).length)
             }).then(() => {
                 alert('Successfully Inserted!')
             }).catch((error) => {
-    console.log(error);
-})
+                console.log(error);
+            })
         }
 
 
@@ -70,71 +73,93 @@ console.log(Object.keys(formErrors).length)
             }
             if (!values.message) {
             errors.password = "Please enter your feedback";
-            } 
+          } 
+          
             return errors;
         }
     return <>
+        <div className="d-flex justify-content-end">
+                <Button variant="success" onClick={()=>{setIsAdmin(!isAdmin)}}>{ isAdmin ? "Admin" : "Guest User"}</Button>
+        </div>
 <div class="d-flex justify-content-center">
                 <img 
                         src={img} 
                         alt="formImage" 
                         height="344px"
                     className='formImage' />
-                <Form noValidate validated={validated} onSubmit={submitDetails} className='p-3'>
+                <Form noValidate validated={validated} className='p-3'>
                     <Row>
                     <Col lg={6}>
                     <Form.Group className="mb-5">
-                            <Form.Control
-                                required className='borderEffect' type="text" placeholder="First Name" onChange={(e) => {
-                        setFName(e.target.value)
-                                }} />
-                         <Form.Control.Feedback type="invalid">
-                            Please provide First Name.
-                        </Form.Control.Feedback>             
+                       <Form.Control
+                           required
+                           className='borderEffect'
+                           type="text"
+                           placeholder="First Name"
+                           value={fName}
+                           onChange={(e) => {
+                               setFName(e.target.value)
+                           }} />
+                        <Form.Control.Feedback type="invalid">Please provide First Name.</Form.Control.Feedback>             
                     </Form.Group>
                     </Col>
                      <Col lg={6}>
+                  
+                     <Col lg={6}></Col>
                     <Form.Group className="mb-5">
-                        <Form.Control required className='borderEffect' type="text" placeholder="Last Name"  onChange={(e) => {
-                            setLName(e.target.value)
+                        <Form.Control 
+                            required 
+                            className='borderEffect' 
+                            type="text" 
+                            placeholder="Last Name" 
+                            value={lName} 
+                            onChange={(e) => {
+                                setLName(e.target.value)
                             }} />
                             <span>{ formErrors.fName }</span>
                             
-                        <Form.Control.Feedback type="invalid">
-                            Please provide Last Name.
-                        </Form.Control.Feedback>                            
+                        <Form.Control.Feedback type="invalid">Please provide Last Name.</Form.Control.Feedback>                            
                     </Form.Group>
                     </Col>
                     </Row>
                     <Form.Group className="mb-5" controlId="formBasicEmail">
-                        <Form.Control className='borderEffect' type="email" placeholder="Enter Your Email" required onChange={(e) => {
-                            setEmail(e.target.value)
-                        }} />
-                        <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
+                        <Form.Control 
+                            required 
+                            className='borderEffect' 
+                            type="email" 
+                            placeholder="Enter Your Email" 
+                            value={email} 
+                            onChange={(e) => {
+                                setEmail(e.target.value)
+                            }} />
+                        <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
                             <p>{ formErrors.fName }</p>
                     
-                        <Form.Control.Feedback type="invalid">
-                            Please provide a valid email.
-                        </Form.Control.Feedback>                    
+                        <Form.Control.Feedback type="invalid">Please provide a valid email.</Form.Control.Feedback>                    
                     </Form.Group>
                      <Form.Group className="mb-5" controlId="exampleForm.ControlTextarea1">
-                        <Form.Control className='borderEffect' as="textarea" placeholder="Message" rows={3} required onChange={(e) => {
-                            setMessage(e.target.value)
-                    }} />
+                        <Form.Control 
+                            as="textarea" 
+                            required 
+                            className='borderEffect'  
+                            placeholder="Message" 
+                            rows={3} 
+                            value={message} 
+                            onChange={(e) => {
+                                setMessage(e.target.value)
+                            }} />
                             <p>{ formErrors.fName }</p>
                     
-                        <Form.Control.Feedback type="invalid">
-                            Please provide Your feedback.
-                        </Form.Control.Feedback>                    
+                        <Form.Control.Feedback type="invalid">Please provide Your feedback.</Form.Control.Feedback>                    
                     </Form.Group>
                     <Button variant="primary" type="submit" className=' w-100' onClick={submitDetails}>
                         Submit
-                    </Button>
-                    <Button as={Link} to='/repliesofcontactUs' variant="info" className=' w-100 mt-3'>
+                </Button>
+                
+                {isAdmin? <Button as={Link} to='/repliesofcontactUs' variant="info" className=' w-100 mt-3'>
                         View
-                    </Button>
+                    </Button>: null}
+                    
                 </Form>
             </div>
     </>

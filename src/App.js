@@ -1,4 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
+import Axios from 'axios'
+import { useState, useEffect } from 'react'
+
 import Header from './components/main components/Header';
 import Home from './components/Pages/Home';
 import AboutUs from './components/Pages/AboutUs'
@@ -13,13 +16,27 @@ import Services from './components/Pages/Services'
 import Leadership from './components/Pages/Leadership'
 import RepliesOfContactUs from './components/Admin Page/RepliesOfContactUs';
 import ReplyToFeedback from './components/Admin Page/ReplyToFeedback'
+// import LeoClubsUploads from './components/Admin Page/LeoClubsUploads'
+import AlphaClub from './components/Admin Page/AlphaClub'
+import OmegaClub from './components/Admin Page/OmegaClub'
 import Footer from './components/footer'
 import './App.css';
+import ViewLeoClub from './components/Pages/ViewLeoClub';
+
+// const contactUsReplies = 
 
 
-
-
-function App() {
+function App() {  
+    const [replyList, setReplyList] = useState([])
+    const getList = async () => {
+        const response = await Axios.get('http://localhost:5000/api/replies');
+        const replyList = await response.data;
+        setReplyList(replyList)
+        // console.log(replyList)
+    }
+    useEffect(() => {
+       getList()
+    }, [])
   return (
     <div className="App">
       <Header />
@@ -36,7 +53,13 @@ function App() {
         <Route path='/services' element={<Services />} />
         <Route path='/leadership' element={<Leadership />} />
         <Route path='/repliesofcontactUs' element={<RepliesOfContactUs />} />
-        <Route path='/replytofeedback' element={<ReplyToFeedback />} />
+        <Route path='/replytofeedback/:id' element={<ReplyToFeedback data={ replyList } />} />
+        {/* <Route path='/leoclubuploads' element={<LeoClubsUploads />} /> */}
+        <Route path='/alphaclub' element={<AlphaClub />} />
+        <Route path='/omegaclub' element={<OmegaClub />} />
+        <Route path='/updateclub/:ID' element={<OmegaClub />} />
+        <Route path='/viewleoclub/:ID' element={<ViewLeoClub />} />
+
   
       </Routes>
       <Footer />

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
-// import ReplyToFeedback from './ReplyToFeedback'
 import { Container, Table, Button } from 'react-bootstrap'
 const RepliesOfContactUs=()=> {
     const [replyList, setReplyList] = useState([])
@@ -15,9 +14,6 @@ const RepliesOfContactUs=()=> {
        getList()
     }, [])
     
-    // const sendDetails = () => {
-    //     <ReplyToFeedback firstName={fName} lastName={lName} emailAddress={ email }/>
-    // }
     return (
         <>
         <Container>   
@@ -38,13 +34,15 @@ const RepliesOfContactUs=()=> {
                                     <td>{fName} {lName}</td>
                                     <td>{email}</td>
                                     <td colSpan={2}>{message}</td>
-                                    <td><Button as={Link} to='replytofeedback' className='w-100' >Reply</Button></td>
-                                    <td className='hide'></td>
+                                    <td><Button as={Link} to={`/replytofeedback/${id}`} className='w-100' >Reply</Button></td>
+
                                 </tr>
                             )
                         })}
                     </tbody>
                 </Table>
+                <Button variant="dark" as={Link} to='/aboutUs' className=' w-100 mt-5'>Go Back</Button>
+
         </Container>
         </>
     )
